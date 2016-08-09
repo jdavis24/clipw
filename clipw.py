@@ -19,7 +19,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-d', action='store_true', help='default behavior - prints 12-character password') #try default=True again
 parser.add_argument('-a', action='store_true', help='secondary test switch')
 #parser.add_argument('-l', action='store', dest='len', type=int, help='set the length of password provided')
-parser.add_argument('--len', action='store', dest='len', type=int, help='set the length of password provided')
+parser.add_argument('--len', '-l', action='store', dest='len', type=int, help='set the length of password provided')
 
 args = parser.parse_args()
 
