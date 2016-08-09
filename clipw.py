@@ -4,19 +4,35 @@ from os import urandom
 from base64 import b64encode
 import argparse
 
+def default():
+	gen = urandom(12)
+	genout = b64encode(gen).decode('utf-8')
+	print(genout)
+def length(len):
+	gen = urandom(len)
+	genout = b64encode(gen).decode('utf-8')
+	print(genout)
+
 #adding ability to use arguments
 parser = argparse.ArgumentParser()
-parser.add_argument('-d', action='store_true', help='default behavior - prints 12-character password')
+
+parser.add_argument('-d', action='store_true', help='default behavior - prints 12-character password') #try default=True again
 parser.add_argument('-a', action='store_true', help='secondary test switch')
+#parser.add_argument('-l', action='store', dest='len', type=int, help='set the length of password provided')
+parser.add_argument('--len', action='store', dest='len', type=int, help='set the length of password provided')
 
 args = parser.parse_args()
 
 if args.d:
-	print('default switch worked')
+	default()
 elif args.a:
 	print('a switch worked')
-else:
-	print('didn\'t work')
+#elif args.l:
+#	print(args.len)
+#	length(args.len)
+elif args.len:
+#	print(args.len)
+	length(args.len)
 
 #default random output behavior
 #test = urandom(12)
