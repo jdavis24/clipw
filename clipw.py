@@ -6,6 +6,8 @@ import argparse
 import random
 import string
 
+#leaving the debug checks on the functions for now, while I work some things out
+
 def default():
 	gen = urandom(12)
 	genout = b64encode(gen).decode('utf-8')
