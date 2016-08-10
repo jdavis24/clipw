@@ -10,23 +10,23 @@ def default():
 	gen = urandom(12)
 	genout = b64encode(gen).decode('utf-8')
 	pw = genout.translate({ord(x): '' for x in '!@#$%^&*()_+-==[]{}<>,./\?`~'})
-	print(pw)
+	print(pw + '  default')
 def length(len):
 	gen = urandom(len)
 	genout = b64encode(gen).decode('utf-8')
 	pw = genout.translate({ord(x): '' for x in '!@#$%^&*()_+-=[]{}<>,./\?`~'})
-	print(pw)
+	print(pw + '  length')
 def special():
 	gen = urandom(12)
 	genout = b64encode(gen).decode('utf-8')
 	pw = genout.translate({ord(x): '' for x in '!@#$%^&*()_+-=[]{}<>,./\?`~'})
 	randchar = random.choice(string.punctuation)
-	print(pw + randchar)
+	print(pw + randchar + '  special')
 
 #adding ability to use arguments
 parser = argparse.ArgumentParser()
 
-parser.add_argument('-d', action='store_true', help='default behavior - prints 12-byte password', default = True) #try default=True again
+parser.add_argument('-d', action='store_true', help='default behavior - prints 12-byte password') #try default=True again
 parser.add_argument('-a', action='store_true', help='secondary test switch')
 parser.add_argument('--spec', '-s', action='store_true', help='adds a special character to the default password')
 parser.add_argument('--len', '-l', action='store', dest='len', type=int, help='set the length of password provided in bytes')
