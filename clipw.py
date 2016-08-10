@@ -26,7 +26,7 @@ def special():
 	print(pw + randchar + '  special')
 
 #adding ability to use arguments
-parser = argparse.ArgumentParser()
+parser = argparse.ArgumentParser(description='generates random passwords')
 
 parser.add_argument('-d', action='store_true', help='default behavior - prints 12-byte password') #try default=True again
 parser.add_argument('-a', action='store_true', help='secondary test switch')
