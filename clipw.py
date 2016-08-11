@@ -5,6 +5,7 @@ from base64 import b64encode
 import argparse
 import random
 import string
+import sys
 
 #leaving the debug checks on the functions for now, while I work some things out
 
@@ -35,7 +36,7 @@ parser.add_argument('--len', '-l', action='store', dest='len', type=int, help='s
 
 args = parser.parse_args()
 
-if args.d:
+if args.d or len(sys.argv)==1:  #thanks, matt
 	default()
 elif args.a:
 	print('a switch worked')
